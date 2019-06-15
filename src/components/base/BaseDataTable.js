@@ -1,66 +1,64 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React, { Component } from 'react';
+import MaterialTable from 'material-table';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-    overflowX: 'auto'
-  },
-  table: {
-    minWidth: 650
+class BaseDataTable extends Component {
+  const [state, setState] = React.useState({
+    columns: [
+      { title: 'Id', field: 'id' },
+      { title: 'Name', field: 'name' },
+      { title: 'User Name', field: 'username' },
+      { title: 'e-Mail', field: 'email' },
+      { title: 'Website', field: 'website' }
+    ],
+    data: [
+      { id: '1', name: 'Mehmet', username: 'Baran', email: 'blabla@gmail.com', website: 'blabla.com' },
+      { id: '2', name: 'Mehmet', username: 'Baran', email: 'blabla@gmail.com', website: 'blabla.com' },
+      { id: '3', name: 'Mehmet', username: 'Baran', email: 'blabla@gmail.com', website: 'blabla.com' },
+      { id: '4', name: 'Mehmet', username: 'Baran', email: 'blabla@gmail.com', website: 'blabla.com' },
+      { id: '5', name: 'Mehmet', username: 'Baran', email: 'blabla@gmail.com', website: 'blabla.com' },
+      { id: '6', name: 'Mehmet', username: 'Baran', email: 'blabla@gmail.com', website: 'blabla.com' },
+      { id: '7', name: 'Mehmet', username: 'Baran', email: 'blabla@gmail.com', website: 'blabla.com' }
+    ]
+  });
+
+  render() {
+    return (
+      <MaterialTable
+        title="Editable Example"
+        columns={state.columns}
+        data={state.data}
+        editable={{
+          onRowAdd: newData =>
+            new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+                const data = [...state.data];
+                data.push(newData);
+                setState({ ...state, data });
+              }, 600);
+            }),
+          onRowUpdate: (newData, oldData) =>
+            new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+                const data = [...state.data];
+                data[data.indexOf(oldData)] = newData;
+                setState({ ...state, data });
+              }, 600);
+            }),
+          onRowDelete: oldData =>
+            new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+                const data = [...state.data];
+                data.splice(data.indexOf(oldData), 1);
+                setState({ ...state, data });
+              }, 600);
+            })
+        }}
+      />
+    );
   }
-}));
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9)
-];
-
-export default function BaseDataTable() {
-  const classes = useStyles();
-
-  return (
-    <React.Fragment>
-      <Paper className={classes.root}>
-        <Table className={classes.table}>
-          <TableHead>
-            <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map(row => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Paper>
-    </React.Fragment>
-  );
-}
+export default BaseDataTable;

@@ -25,7 +25,7 @@ export default function NavBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Pratt and Whitney
+            PW
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

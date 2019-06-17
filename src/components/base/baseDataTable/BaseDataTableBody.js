@@ -53,13 +53,9 @@ export default function BaseTableBody(props) {
 									inputProps={{ 'aria-labelledby': labelId }}
 								/>
 							</TableCell>
-							<TableCell component="th" id={labelId} scope="row" padding="none">
-								{row.name}
-							</TableCell>
-							<TableCell align="right">{row.calories}</TableCell>
-							<TableCell align="right">{row.fat}</TableCell>
-							<TableCell align="right">{row.carbs}</TableCell>
-							<TableCell align="right">{row.protein}</TableCell>
+							{props.headRows.map(header => (
+								<TableCell align={header.numeric ? 'right' : 'left'} padding={header.numeric ? 'none' : null}>{row[header.id]}</TableCell>
+							))}
 						</TableRow>
 					);
 				})}

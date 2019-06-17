@@ -38,6 +38,7 @@ const useToolbarStyles = makeStyles(theme => ({
 export default function BaseDataTableToolBar(props) {
 	const classes = useToolbarStyles();
 	const { numSelected } = props;
+	const title = props.title;
 
 	return (
 		<Toolbar
@@ -49,11 +50,11 @@ export default function BaseDataTableToolBar(props) {
 				{numSelected > 0 ? (
 					<Typography color="inherit" variant="subtitle1">
 						{numSelected} selected
-			</Typography>
+					</Typography>
 				) : (
 						<Typography variant="h6" id="tableTitle">
-							Nutrition
-			</Typography>
+							{title}
+						</Typography>
 					)}
 			</div>
 			<div className={classes.spacer} />
@@ -78,5 +79,6 @@ export default function BaseDataTableToolBar(props) {
 
 BaseDataTableToolBar.propTypes = {
 	numSelected: PropTypes.number.isRequired,
-	toggleSearchBar: PropTypes.func.isRequired
+	toggleSearchBar: PropTypes.func.isRequired,
+	title: PropTypes.string.isRequired
 };

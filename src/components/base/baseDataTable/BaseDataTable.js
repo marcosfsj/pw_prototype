@@ -11,8 +11,6 @@ import BaseDataTableBody from './BaseDataTableBody';
 import BaseDataTablePagination from './BaseDataTablePagination';
 import BaseDataTableToolBar from './BaseDataTableToolBar';
 
-let rows = [];
-
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -31,7 +29,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function BaseDataTable(props) {
-  rows = props.rows;
+  const rows = props.rows;
+  const title = props.title;
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
@@ -93,7 +92,7 @@ export default function BaseDataTable(props) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <BaseDataTableToolBar numSelected={selected.length} toggleSearchBar={props.toggleSearchBar} />
+        <BaseDataTableToolBar numSelected={selected.length} toggleSearchBar={props.toggleSearchBar} title={title} />
         <div className={classes.tableWrapper}>
           <Table
             className={classes.table}
@@ -118,6 +117,7 @@ export default function BaseDataTable(props) {
               page={page}
               order={order}
               orderBy={orderBy}
+              headRows={props.headRows}
             />
           </Table>
         </div>
@@ -140,5 +140,6 @@ export default function BaseDataTable(props) {
 BaseDataTable.propTypes = {
   headRows: PropTypes.array.isRequired,
   rows: PropTypes.array.isRequired,
-  toggleSearchBar: PropTypes.func
+  toggleSearchBar: PropTypes.func,
+  title: PropTypes.string.isRequired
 };

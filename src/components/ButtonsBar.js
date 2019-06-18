@@ -1,10 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import SaveButton from '../components/SaveButton';
-import DeleteButton from '../components/DeleteButton';
-import EditButton from '../components/EditButton';
+import SaveButton from '../components/buttons/SaveButton';
+import DeleteButton from '../components/buttons/DeleteButton';
+import EditButton from '../components/buttons/EditButton';
 
-export default function Prototype() {
+export default function ButtonsBar() {
   return (
     <Grid container spacing={0}>
       <Grid item xs={1}>

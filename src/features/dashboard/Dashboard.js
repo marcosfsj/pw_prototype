@@ -1,36 +1,38 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-import DashCard from '../../components/dashboard/DashCard';
+import DashboardCard from '../../components/DashboardCard';
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
   render() {
     return (
       <Grid container spacing={1}>
         <Grid item xs={3}>
-          <DashCard />
+          <DashboardCard />
         </Grid>
         <Grid item xs={3}>
-          <DashCard />
+          <DashboardCard />
         </Grid>
         <Grid item xs={3}>
-          <DashCard />
+          <DashboardCard />
         </Grid>
         <Grid item xs={3}>
-          <DashCard />
+          <DashboardCard />
         </Grid>
         <Grid item xs={3}>
-          <DashCard />
+          <DashboardCard />
         </Grid>
         <Grid item xs={3}>
-          <DashCard />
+          <DashboardCard />
         </Grid>
         <Grid item xs={3}>
-          <DashCard />
+          <DashboardCard />
         </Grid>
         <Grid item xs={3}>
-          <DashCard />
+          <DashboardCard />
         </Grid>
       </Grid>
     );
   }
 }
+
+export default Dashboard;

@@ -3,19 +3,18 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import BaseDataTable from '../../components/base/baseDataTable/BaseDataTable';
 import SearchFiltersBar from '../../components/SearchFiltersBar';
-import { loadUsers } from '../../store/actions/usersActions';
-
-const headRows = [
-	{ id: 'id', numeric: true, disablePadding: true, label: 'Id' },
-	{ id: 'name', numeric: false, disablePadding: false, label: 'Name' },
-	{ id: 'username', numeric: false, disablePadding: false, label: 'User Name' },
-	{ id: 'website', numeric: false, disablePadding: false, label: 'Website' }
-];
+import { loadUsers } from '../../store/actions/users-actions';
 
 class PrototypeTwo extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showSearchBar: false };
+		this.headRows = [
+			{ id: 'id', numeric: true, disablePadding: true, label: 'Id' },
+			{ id: 'name', numeric: false, disablePadding: false, label: 'Name' },
+			{ id: 'username', numeric: false, disablePadding: false, label: 'User Name' },
+			{ id: 'website', numeric: false, disablePadding: false, label: 'Website' }
+		];
 	}
 
 	componentDidMount() {
@@ -32,7 +31,7 @@ class PrototypeTwo extends Component {
 				<Grid item xs={this.state.showSearchBar === true ? 10 : 12}>
 					<BaseDataTable
 						title={'Users'}
-						headRows={headRows}
+						headRows={this.headRows}
 						rows={this.props.userList}
 						toggleSearchBar={this.toggleSearchBar}
 					/>

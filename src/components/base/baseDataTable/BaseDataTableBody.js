@@ -4,6 +4,55 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
 
+export default function BaseTableBody(props) {
+	return (
+		<TableBody>
+			{stableSort(props.rows, getSorting(props.order, props.orderBy))
+				.slice(props.page * props.rowsPerPage, props.page * props.rowsPerPage + props.rowsPerPage)
+				.map((row, index) => {
+
+					const isItemSelected = props.isSelected(row.name);
+					const labelId = `table-checkbox-${index}`;
+
+					return (
+						<TableRow
+							hover
+							onClick={event => props.handleClick(event, row.name)}
+							role="checkbox"
+							aria-checked={isItemSelected}
+							tabIndex={-1}
+							key={row.name}
+							selected={isItemSelected}
+						>
+							<TableCell padding="checkbox">
+								<Checkbox
+									checked={isItemSelected}
+									inputProps={{ 'aria-labelledby': labelId }}
+								/>
+							</TableCell>
+							{renderCells(props, row)}
+						</TableRow>
+					);
+				})}
+			{props.emptyRows > 0 && (
+				<TableRow style={{ height: 49 * props.emptyRows }}>
+					<TableCell colSpan={6} />
+				</TableRow>
+			)}
+		</TableBody>
+	);
+}
+
+function renderCells(props, row) {
+	return (
+		props.headRows.map(header => (
+			<TableCell align={header.numeric ? 'right' : 'left'} padding={header.numeric ? 'none' : 'default'}>
+				{row[header.id]}
+			</TableCell>
+		))
+	);
+}
+
 function stableSort(array, cmp) {
 	const stabilizedThis = array.map((el, index) => [el, index]);
 	stabilizedThis.sort((a, b) => {
@@ -26,44 +75,4 @@ function desc(a, b, orderBy) {
 		return 1;
 	}
 	return 0;
-}
-
-export default function BaseTableBody(props) {
-	return (
-		<TableBody>
-			{stableSort(props.rows, getSorting(props.order, props.orderBy))
-				.slice(props.page * props.rowsPerPage, props.page * props.rowsPerPage + props.rowsPerPage)
-				.map((row, index) => {
-					const isItemSelected = props.isSelected(row.name);
-					const labelId = `table-checkbox-${index}`;
-
-					return (
-						<TableRow
-							hover
-							onClick={event => props.handleClick(event, row.name)}
-							role="checkbox"
-							aria-checked={isItemSelected}
-							tabIndex={-1}
-							key={row.name}
-							selected={isItemSelected}
-						>
-							<TableCell padding="checkbox">
-								<Checkbox
-									checked={isItemSelected}
-									inputProps={{ 'aria-labelledby': labelId }}
-								/>
-							</TableCell>
-							{props.headRows.map(header => (
-								<TableCell align={header.numeric ? 'right' : 'left'} padding={header.numeric ? 'none' : null}>{row[header.id]}</TableCell>
-							))}
-						</TableRow>
-					);
-				})}
-			{props.emptyRows > 0 && (
-				<TableRow style={{ height: 49 * props.emptyRows }}>
-					<TableCell colSpan={6} />
-				</TableRow>
-			)}
-		</TableBody>
-	);
 }

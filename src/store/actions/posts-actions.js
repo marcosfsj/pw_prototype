@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import Backend from '../../config/backend/Backend';
-import fetchUser from './usersActions';
-import { LOAD_POSTS } from './Types';
+import backend from '../../config/backend/backend';
+import fetchUser from './users-actions';
+import { LOAD_POSTS } from './types';
 
 export const loadPostsAndUsers = () => async (dispatch, getState) => {
   await dispatch(loadPosts());

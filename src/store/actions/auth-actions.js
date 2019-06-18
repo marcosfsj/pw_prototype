@@ -5,7 +5,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT
-} from './Types';
+} from './types';
 import setAuthToken from '../utils/setAuthToken';
 
 // Load User

@@ -1,13 +1,13 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import BaseTextField from './base/BaseTextField';
-import SearchButton from './SearchButton';
+import SearchButton from '../components/buttons/SearchButton';
 
 export default function SearchFiltersBar() {
 	return (
 		<Grid container spacing={1}>
 			<Grid item xs={12}>
-				Search Fielters:
+				Search Filters:
 			</Grid>
 			<Grid item xs={12}>
 				<BaseTextField label="Name" />

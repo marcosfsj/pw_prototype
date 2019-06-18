@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-const Prototype = lazy(() => import('../../features/prototype/Prototype'));
-const PrototypeTwo = lazy(() => import('../../features/prototype-two/PrototypeTwo'));
+const Prototype = lazy(() => import('../../features/prototype/prototype'));
+const PrototypeTwo = lazy(() => import('../../features/prototype-two/prototype-two'));
 
 const Routes = () => {
   return (

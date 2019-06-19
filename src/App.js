@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 
 // Theme
 import theme from './config/theme/theme';
@@ -31,8 +32,10 @@ class App extends Component {
                   <NavBar />
                 </Grid>
                 <Grid item xs={12}>
-                  <Route exact path="/" component={Dashboard} />
-                  <Route component={routes} />
+                  <Container maxWidth="xl">
+                    <Route exact path="/" component={Dashboard} />
+                    <Route component={routes} />
+                  </Container>
                 </Grid>
               </Grid>
             </MuiThemeProvider>

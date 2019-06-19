@@ -21,10 +21,6 @@ class PrototypeTwo extends Component {
 		this.props.loadUsers();
 	}
 
-	toggleSearchBar = () => {
-		this.setState({ showSearchBar: !this.state.showSearchBar });
-	}
-
 	render() {
 		return (
 			<Grid container spacing={1}>
@@ -36,14 +32,21 @@ class PrototypeTwo extends Component {
 						toggleSearchBar={this.toggleSearchBar}
 					/>
 				</Grid>
-				{this.state.showSearchBar === true ?
-					(<Grid item xs={2}>
-						<SearchFiltersBar />
-					</Grid>)
-					: null
+				{
+					this.state.showSearchBar === true
+						? (
+							<Grid item xs={2}>
+								<SearchFiltersBar />
+							</Grid>
+						)
+						: null
 				}
 			</Grid>
 		);
+	}
+
+	toggleSearchBar = () => {
+		this.setState({ showSearchBar: !this.state.showSearchBar });
 	}
 }
 

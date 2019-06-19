@@ -1,32 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import Paper from '@material-ui/core/Paper';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import PropTypes from 'prop-types';
 
 import BaseDataTableToolBar from './BaseDataTableToolBar';
 import BaseDataTableHead from './BaseDataTableHead';
 import BaseDataTableBody from './BaseDataTableBody';
 import BaseDataTablePagination from './BaseDataTablePagination';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing(0)
-  },
-  paper: {
-    width: '100%',
-    marginBottom: theme.spacing(2)
-  },
-  table: {
-    minWidth: 750
-  },
-  tableWrapper: {
-    overflowX: 'auto'
-  },
-}));
+const propTypes = {
+  headRows: PropTypes.array.isRequired,
+  rows: PropTypes.array.isRequired,
+  toggleSearchBar: PropTypes.func,
+  title: PropTypes.string.isRequired
+};
+
+const defaultProps = {};
 
 export default function BaseDataTable(props) {
   const rows = props.rows;
@@ -137,9 +129,22 @@ export default function BaseDataTable(props) {
 
 }
 
-BaseDataTable.propTypes = {
-  headRows: PropTypes.array.isRequired,
-  rows: PropTypes.array.isRequired,
-  toggleSearchBar: PropTypes.func,
-  title: PropTypes.string.isRequired
-};
+BaseDataTable.propTypes = propTypes;
+BaseDataTable.defaultProps = defaultProps;
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing(0)
+  },
+  paper: {
+    width: '100%',
+    marginBottom: theme.spacing(2)
+  },
+  table: {
+    minWidth: 750
+  },
+  tableWrapper: {
+    overflowX: 'auto'
+  },
+}));

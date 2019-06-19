@@ -1,19 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Prototype from '../prototype/prototype';
-import ButtonsBar from '../../components/ButtonsBar';
+import Comments from '../comments/comments';
+import CommentBox from '../../components/comment/CommentBox';
+import CommentList from '../../components/comment/CommentList';
 
-describe('prototype', function () {
+describe('comments', function () {
 
-	//let component;
+	let component;
 
 	beforeEach(() => {
-		//component = shallow(<Prototype />);
+		component = shallow(<Comments />);
 	});
 
-	it('should contain a buttons bar', () => {
-		//const component = shallow(<Prototype />);
-		//expect(component.find(<ButtonsBar />).length).toEqual(1);
+	it('shows a comment box', () => {
+		expect(component.find(CommentBox).length).toEqual(1);
+	});
+
+	it('shows a comment list', () => {
+		expect(component.find(CommentList).length).toEqual(1);
 	});
 
 	it('should render without throwing an error', function () {

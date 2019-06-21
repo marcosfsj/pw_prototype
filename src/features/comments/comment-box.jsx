@@ -5,11 +5,11 @@ import BaseTextArea from '../../components/base/BaseTextArea';
 import SubmitButton from '../../components/buttons/SubmitButton';
 import { saveComment } from '../../store/actions/comments-actions';
 
-const propTypes = {};
-const defaultProps = {};
-
 class CommentBox extends Component {
 	state = { comment: '' };
+
+	static propTypes = {};
+	static defaultProps = {};
 
 	render() {
 		return (
@@ -27,21 +27,18 @@ class CommentBox extends Component {
 					<SubmitButton handleSubmit={this.handleSubmit} />
 				</div>
 			</form>
-		);
+		)
 	}
 
 	handleChange = (event) => {
 		this.setState({ comment: event.target.value });
-	};
+	}
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		this.props.saveComment({ comment: 'new comment' });
+		this.props.saveComment({ comment: this.state.comment });
 		this.setState({ comment: '' });
-	};
+	}
 }
-
-CommentBox.propTypes = propTypes;
-CommentBox.defaultProps = defaultProps;
 
 export default connect(null, { saveComment })(CommentBox);

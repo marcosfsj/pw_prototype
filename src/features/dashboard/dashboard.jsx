@@ -3,10 +3,11 @@ import Grid from '@material-ui/core/Grid';
 
 import DashboardCard from './dashboard-card';
 
-const propTypes = {};
-const defaultProps = {};
-
 class Dashboard extends Component {
+
+  static propTypes = {};
+  static defaultProps = {};
+
   render() {
     return (
       <Grid container spacing={1}>
@@ -38,8 +39,5 @@ class Dashboard extends Component {
     );
   }
 }
-
-Dashboard.propTypes = propTypes;
-Dashboard.defaultProps = defaultProps;
 
 export default Dashboard;

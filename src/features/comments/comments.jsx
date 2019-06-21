@@ -4,10 +4,11 @@ import Grid from '@material-ui/core/Grid';
 import CommentBox from './comment-box';
 import CommentList from './comment-list';
 
-const propTypes = {};
-const defaultProps = {};
-
 class Comments extends Component {
+
+	static propTypes = {};
+	static defaultProps = {};
+
 	render() {
 		return (
 			<Grid container spacing={1}>
@@ -21,8 +22,5 @@ class Comments extends Component {
 		);
 	}
 }
-
-Comments.propTypes = propTypes;
-Comments.defaultProps = defaultProps;
 
 export default Comments;

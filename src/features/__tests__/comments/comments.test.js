@@ -5,7 +5,7 @@ import Comments from '../../comments/comments';
 import CommentBox from '../../comments/comment-box';
 import CommentList from '../../comments/comment-list';
 
-describe('comments', function () {
+describe('tests comments', function () {
 
 	let component;
 

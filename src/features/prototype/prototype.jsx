@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
+
 import ButtonsBar from '../../components/ButtonsBar';
 import { loadUsers } from '../../store/actions/users-actions';
 import BaseTextField from '../../components/base/BaseTextField';
 
 class Prototype extends Component {
+
+  static propTypes = {};
+  static defaultProps = {};
+
   componentDidMount() {
     this.props.loadUsers();
   }
@@ -24,9 +29,9 @@ class Prototype extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { userList: state.users.userList };
-};
+}
 
 export default connect(
   mapStateToProps,

@@ -10,11 +10,11 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345
+    maxWidth: 380
   }
 });
 
-export default function DashCard() {
+function DashCard() {
   const classes = useStyles();
 
   return (
@@ -48,3 +48,5 @@ export default function DashCard() {
     </Card>
   );
 }
+
+export default DashCard;

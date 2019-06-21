@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-import DashboardCard from '../../components/DashboardCard';
+
+import DashboardCard from './dashboard-card';
+
+const propTypes = {};
+const defaultProps = {};
 
 class Dashboard extends Component {
   render() {
@@ -34,5 +38,8 @@ class Dashboard extends Component {
     );
   }
 }
+
+Dashboard.propTypes = propTypes;
+Dashboard.defaultProps = defaultProps;
 
 export default Dashboard;

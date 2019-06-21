@@ -1,6 +1,8 @@
 import React from 'react';
 import BaseButton from '../base/BaseButton';
 
-export default function EditButton() {
-  return <BaseButton text="Edit" />;
+function EditButton(props) {
+  return <BaseButton text="Edit" onClick={props.handleEdit} />;
 }
+
+export default EditButton;

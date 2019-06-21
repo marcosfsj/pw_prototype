@@ -1,15 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import Paper from '@material-ui/core/Paper';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
+import Table from '@material-ui/core/Table';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import BaseDataTableToolBar from './BaseDataTableToolBar';
-import BaseDataTableHead from './BaseDataTableHead';
 import BaseDataTableBody from './BaseDataTableBody';
+import BaseDataTableHead from './BaseDataTableHead';
 import BaseDataTablePagination from './BaseDataTablePagination';
+import BaseDataTableToolBar from './BaseDataTableToolBar';
+
 
 const propTypes = {
   headRows: PropTypes.array.isRequired,
@@ -144,6 +145,7 @@ const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 750
   },
+
   tableWrapper: {
     overflowX: 'auto'
   },

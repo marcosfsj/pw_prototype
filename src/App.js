@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -9,20 +8,20 @@ import Container from '@material-ui/core/Container';
 // Theme
 import theme from './config/theme/theme';
 
-// Store
-import store from './store/store';
+// Store Provider
+import StoreProvider from './utils/store-provider';
 
 // Routes
 import routes from './config/routing/routes';
 
 // App components
-import NavBar from './components/NavBar';
+import NavBar from './components/layout/NavBar';
 import Dashboard from './features/dashboard/dashboard';
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <StoreProvider>
         <CssBaseline />
         <Router>
           <Switch>
@@ -41,7 +40,7 @@ class App extends Component {
             </MuiThemeProvider>
           </Switch>
         </Router>
-      </Provider>
+      </StoreProvider>
     );
   }
 }

@@ -11,3 +11,6 @@ export const LOAD_POSTS = 'LOAD_POSTS';
 // Users
 export const FETCH_USER = 'FETCH_USER';
 export const LOAD_USERS = 'LOAD_USERS';
+
+// Comments
+export const SAVE_COMMENT = 'SAVE_COMMENT';

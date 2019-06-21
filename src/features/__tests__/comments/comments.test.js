@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Comments from '../comments/comments';
-import CommentBox from '../../components/comment/CommentBox';
-import CommentList from '../../components/comment/CommentList';
+
+import Comments from '../../comments/comments';
+import CommentBox from '../../comments/comment-box';
+import CommentList from '../../comments/comment-list';
 
 describe('comments', function () {
 

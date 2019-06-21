@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Prototype from '../prototype/prototype';
-import ButtonsBar from '../../components/ButtonsBar';
+import Prototype from '../../prototype/prototype';
+import ButtonsBar from '../../../components/ButtonsBar';
 
 describe('prototype', function () {
 

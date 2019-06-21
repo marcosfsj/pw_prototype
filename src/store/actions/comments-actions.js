@@ -1,5 +1,14 @@
-import { SAVE_COMMENT } from './types';
+import {
+  SAVE_COMMENT,
+  LOAD_COMMENTS
+} from './types';
+import backend from '../../config/backend/backend';
 
-export const saveComment = comment => dispatch => {
+export const saveComment = (comment) => dispatch => {
   dispatch({ type: SAVE_COMMENT, payload: comment });
+}
+
+export const loadComments = () => async dispatch => {
+  const response = await backend.get('/comments');
+  dispatch({ type: LOAD_COMMENTS, payload: response.data });
 };

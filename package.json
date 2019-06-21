@@ -24,7 +24,7 @@
     "build-qa": "env-cmd -e qa react-scripts build",
     "start-prod": "env-cmd -e prod react-scripts start",
     "build-prod": "env-cmd -e prod react-scripts build",
-    "test": "react-scripts test",
+    "test": "env-cmd -e dev react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0"
+    "enzyme-adapter-react-16": "^1.14.0",
+    "moxios": "^0.4.0"
   }
 }

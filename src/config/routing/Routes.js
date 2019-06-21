@@ -5,7 +5,7 @@ const Prototype = lazy(() => import('../../features/prototype/prototype'));
 const PrototypeTwo = lazy(() => import('../../features/prototype-two/prototype-two'));
 const Comments = lazy(() => import('../../features/comments/comments'));
 
-const Routes = () => {
+const routes = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
@@ -17,4 +17,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default routes;

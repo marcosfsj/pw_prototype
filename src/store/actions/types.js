@@ -14,3 +14,4 @@ export const LOAD_USERS = 'LOAD_USERS';
 
 // Comments
 export const SAVE_COMMENT = 'SAVE_COMMENT';
+export const LOAD_COMMENTS = 'LOAD_COMMENTS';

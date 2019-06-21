@@ -36,7 +36,13 @@ class CommentBox extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		this.props.saveComment({ comment: this.state.comment });
+		this.props.saveComment({
+			"postId": 1,
+			"id": 1,
+			"name": "id labore ex et quam laborum",
+			"email": "Eliseo@gardner.biz",
+			"body": this.state.comment
+		  });
 		this.setState({ comment: '' });
 	}
 }

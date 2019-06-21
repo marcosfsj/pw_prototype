@@ -10,6 +10,6 @@ export const loadPostsAndUsers = () => async (dispatch, getState) => {
 };
 
 export const loadPosts = () => async dispatch => {
-  const response = await Backend.get('/posts');
+  const response = await backend.get('/posts');
   dispatch({ type: LOAD_POSTS, payload: response.data });
 };

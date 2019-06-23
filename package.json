@@ -19,13 +19,15 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "mock:data": "json-server --watch ./src/mock-data/db.json --port 3001",
-    "start-dev": "env-cmd -e dev react-scripts start",
-    "build-dev": "env-cmd -e dev react-scripts build",
-    "start-qa": "env-cmd -e qa react-scripts start",
-    "build-qa": "env-cmd -e qa react-scripts build",
-    "start-prod": "env-cmd -e prod react-scripts start",
-    "build-prod": "env-cmd -e prod react-scripts build",
+    "mock:data": "json-server --watch ./src/mock-data/mock-data.json --port 3001",
+    "react:start:dev": "env-cmd -e dev react-scripts start",
+    "react:build:dev": "env-cmd -e dev react-scripts build",
+    "react:start:qa": "env-cmd -e qa react-scripts start",
+    "react:build:qa": "env-cmd -e qa react-scripts build",
+    "react:start:prod": "env-cmd -e prod react-scripts start",
+    "react:build:prod": "env-cmd -e prod react-scripts build",
+    "start:dev": "concurrently --kill-others \"npm run mock:data\" \"npm run react:start:dev\"",
+    "start:qa": "concurrently --kill-others \"npm run mock:data\" \"npm run react:start:qa\"",
     "test": "env-cmd -e dev react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -45,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "json-server": "^0.15.0",

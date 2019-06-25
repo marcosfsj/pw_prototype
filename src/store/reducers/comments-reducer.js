@@ -1,6 +1,6 @@
-import { 
-  SAVE_COMMENT, 
-  LOAD_COMMENTS 
+import {
+  SAVE_COMMENT,
+  LOAD_COMMENTS
 } from '../actions/types';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const commentsReducer = (state = initialState, action) => {
-  
+
   switch (action.type) {
     case SAVE_COMMENT:
       return { ...state, commentList: [...state.commentList, action.payload] };
@@ -17,6 +17,6 @@ const commentsReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
+}
 
 export default commentsReducer;

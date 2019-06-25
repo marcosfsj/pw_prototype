@@ -9,6 +9,6 @@ const reducers = combineReducers({
   posts: postsReducer,
   users: usersReducer,
   comments: commentsReducer
-});
+})
 
 export default reducers;

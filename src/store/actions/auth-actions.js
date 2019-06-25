@@ -26,7 +26,7 @@ export const loadUser = () => async dispatch => {
       type: AUTH_ERROR
     });
   }
-};
+}
 
 // Login User
 export const login = (email, password) => async dispatch => {
@@ -58,10 +58,10 @@ export const login = (email, password) => async dispatch => {
       type: LOGIN_FAIL
     });
   }
-};
+}
 
 // Logout / Clear Profile
 export const logout = () => dispatch => {
   dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
-};
+}

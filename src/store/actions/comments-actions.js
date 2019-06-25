@@ -11,4 +11,4 @@ export const saveComment = (comment) => dispatch => {
 export const loadComments = () => async dispatch => {
   const response = await backend.get('/comments');
   dispatch({ type: LOAD_COMMENTS, payload: response.data });
-};
+}

@@ -1,29 +1,25 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import Table from '@material-ui/core/Table';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 import BaseDataTableBody from './BaseDataTableBody';
 import BaseDataTableHead from './BaseDataTableHead';
 import BaseDataTablePagination from './BaseDataTablePagination';
 import BaseDataTableToolBar from './BaseDataTableToolBar';
 
+function BaseDataTable(props) {
 
-const propTypes = {
-  headRows: PropTypes.array.isRequired,
-  rows: PropTypes.array.isRequired,
-  toggleSearchBar: PropTypes.func,
-  title: PropTypes.string.isRequired
-};
+  const {
+    headers,
+    rows,
+    title,
+    toggleSearchBar
+  } = props;
 
-const defaultProps = {};
-
-export default function BaseDataTable(props) {
-  const rows = props.rows;
-  const title = props.title;
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
@@ -37,7 +33,7 @@ export default function BaseDataTable(props) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <BaseDataTableToolBar numSelected={selected.length} toggleSearchBar={props.toggleSearchBar} title={title} />
+        <BaseDataTableToolBar numSelected={selected.length} toggleSearchBar={toggleSearchBar} title={title} />
         <div className={classes.tableWrapper}>
           <Table
             className={classes.table}
@@ -51,7 +47,7 @@ export default function BaseDataTable(props) {
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
               rowCount={rows.length}
-              headRows={props.headRows}
+              headers={headers}
             />
             <BaseDataTableBody
               handleClick={handleClick}
@@ -62,7 +58,7 @@ export default function BaseDataTable(props) {
               page={page}
               order={order}
               orderBy={orderBy}
-              headRows={props.headRows}
+              headers={headers}
             />
           </Table>
         </div>
@@ -130,8 +126,14 @@ export default function BaseDataTable(props) {
 
 }
 
-BaseDataTable.propTypes = propTypes;
-BaseDataTable.defaultProps = defaultProps;
+BaseDataTable.propTypes = {
+  headers: PropTypes.array.isRequired,
+  rows: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+  toggleSearchBar: PropTypes.func.isRequired
+};
+
+export default BaseDataTable;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -145,7 +147,6 @@ const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 750
   },
-
   tableWrapper: {
     overflowX: 'auto'
   },

@@ -21,15 +21,13 @@
   "scripts": {
     "mock:data": "json-server --watch ./src/mock-data/mock-data.json --port 3001",
     "react:start:dev": "env-cmd -e dev react-scripts start",
-    "react:build:dev": "env-cmd -e dev react-scripts build",
-    "react:start:qa": "env-cmd -e qa react-scripts start",
-    "react:build:qa": "env-cmd -e qa react-scripts build",
-    "react:start:prod": "env-cmd -e prod react-scripts start",
-    "react:build:prod": "env-cmd -e prod react-scripts build",
     "start:dev": "concurrently --kill-others \"npm run mock:data\" \"npm run react:start:dev\"",
-    "start:qa": "concurrently --kill-others \"npm run mock:data\" \"npm run react:start:qa\"",
-    "test": "env-cmd -e dev react-scripts test",
-    "eject": "react-scripts eject"
+    "build:dev": "env-cmd -e dev react-scripts build",
+    "start:qa": "env-cmd -e qa react-scripts start",
+    "build:qa": "env-cmd -e qa react-scripts build",
+    "start:prod": "env-cmd -e prod react-scripts start",
+    "build:prod": "env-cmd -e prod react-scripts build",
+    "test": "env-cmd -e dev react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -6,11 +6,17 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function BaseTableHead(props) {
-	const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
-	const createSortHandler = property => event => {
-		onRequestSort(event, property);
-	};
+function BaseTableHead(props) {
+
+	const {
+		onSelectAllClick,
+		order,
+		orderBy,
+		numSelected,
+		rowCount,
+		onRequestSort,
+		headers
+	} = props;
 
 	return (
 		<TableHead>
@@ -23,7 +29,7 @@ export default function BaseTableHead(props) {
 						inputProps={{ 'aria-label': 'Select all desserts' }}
 					/>
 				</TableCell>
-				{props.headRows.map(row => (
+				{headers.map(row => (
 					<TableCell
 						key={row.id}
 						align={row.numeric ? 'right' : 'left'}
@@ -42,13 +48,21 @@ export default function BaseTableHead(props) {
 			</TableRow>
 		</TableHead>
 	);
+
+	function createSortHandler(property) {
+		return (event) => { onRequestSort(event, property) };
+	}
+
 }
 
 BaseTableHead.propTypes = {
-	numSelected: PropTypes.number.isRequired,
-	onRequestSort: PropTypes.func.isRequired,
 	onSelectAllClick: PropTypes.func.isRequired,
 	order: PropTypes.string.isRequired,
 	orderBy: PropTypes.string.isRequired,
+	numSelected: PropTypes.number.isRequired,
 	rowCount: PropTypes.number.isRequired,
+	onRequestSort: PropTypes.func.isRequired,
+	headers: PropTypes.array.isRequired
 };
+
+export default BaseTableHead;

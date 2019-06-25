@@ -8,11 +8,8 @@ import { loadUsers } from '../../store/actions/users-actions';
 
 class PrototypeTwo extends Component {
 
-	static propTypes = {};
-	static defaultProps = {};
-
 	state = { showSearchBar: false };
-	headRows = [
+	headers = [
 		{ id: 'id', numeric: true, disablePadding: true, label: 'Id' },
 		{ id: 'name', numeric: false, disablePadding: false, label: 'Name' },
 		{ id: 'username', numeric: false, disablePadding: false, label: 'User Name' },
@@ -29,7 +26,7 @@ class PrototypeTwo extends Component {
 				<Grid item xs={this.state.showSearchBar === true ? 10 : 12}>
 					<BaseDataTable
 						title={'Users'}
-						headRows={this.headRows}
+						headers={this.headers}
 						rows={this.props.userList}
 						toggleSearchBar={this.toggleSearchBar}
 					/>

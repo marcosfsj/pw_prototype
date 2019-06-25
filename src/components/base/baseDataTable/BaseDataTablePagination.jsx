@@ -2,22 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TablePagination from '@material-ui/core/TablePagination';
 
-export default function BaseDataTablePagination(props) {
+function BaseDataTablePagination(props) {
+
+	const {
+		count,
+		rowsPerPage,
+		page,
+		handleChangePage,
+		handleChangeRowsPerPage
+	} = props;
+
 	return (
 		<TablePagination
 			rowsPerPageOptions={[10, 200, 300]}
 			component="div"
-			count={props.count}
-			rowsPerPage={props.rowsPerPage}
-			page={props.page}
+			count={count}
+			rowsPerPage={rowsPerPage}
+			page={page}
 			backIconButtonProps={{
 				'aria-label': 'Previous Page',
 			}}
 			nextIconButtonProps={{
 				'aria-label': 'Next Page',
 			}}
-			onChangePage={props.handleChangePage}
-			onChangeRowsPerPage={props.handleChangeRowsPerPage}
+			onChangePage={handleChangePage}
+			onChangeRowsPerPage={handleChangeRowsPerPage}
 		/>
 	);
 }
@@ -29,3 +38,5 @@ BaseDataTablePagination.propTypes = {
 	handleChangePage: PropTypes.func.isRequired,
 	handleChangeRowsPerPage: PropTypes.func.isRequired
 };
+
+export default BaseDataTablePagination;

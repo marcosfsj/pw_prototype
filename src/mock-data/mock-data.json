@@ -1,7 +1,38 @@
 {
   "comments": [
-    { "id": "1", "comment": "Today is too cold outside" },
-    { "id": "1", "comment": "Today I am felling well" },
-    { "id": "1", "comment": "Today I am going home earlier" }
+    {
+      "id": "1",
+      "comment": "Today is too cold outside"
+    },
+    {
+      "id": "2",
+      "comment": "Today I am felling well"
+    },
+    {
+      "id": "3",
+      "comment": "Today I am going home earlier"
+    },
+    {
+      "id": "4",
+      "comment": "Another comment"
+    },
+    {
+      "id": "5",
+      "comment": "Another comment 2"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Mike",
+      "username": "mike",
+      "website": "mike.com"
+    },
+    {
+      "id": "2",
+      "name": "Jhon",
+      "username": "jhon",
+      "website": "jhon.com"
+    }
   ]
 }

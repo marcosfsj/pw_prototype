@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class CommentList extends Component {
-  static propTypes = {};
-  static defaultProps = {};
-
   render() {
     return (
       <div>

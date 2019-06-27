@@ -8,7 +8,7 @@ import { loadUsers } from '../../store/actions/users-actions';
 
 class PrototypeTwo extends Component {
 
-	state = { showSearchBar: false };
+	state = { showSearchBar: false, page: 1, rowsPerPage: 15 };
 	headers = [
 		{ id: 'id', numeric: true, disablePadding: true, label: 'Id' },
 		{ id: 'name', numeric: false, disablePadding: false, label: 'Name' },
@@ -28,6 +28,11 @@ class PrototypeTwo extends Component {
 						title={'Users'}
 						headers={this.headers}
 						rows={this.props.userList}
+						pagination={this.props.userListPagination}
+						page={this.state.page}
+						rowsPerPage={this.state.rowsPerPage}
+						handleChangePage={this.handleChangePage}
+						handleChangeRowsPerPage={this.handleChangeRowsPerPage}
 						toggleSearchBar={this.toggleSearchBar}
 					/>
 				</Grid>
@@ -47,10 +52,23 @@ class PrototypeTwo extends Component {
 	toggleSearchBar = () => {
 		this.setState({ showSearchBar: !this.state.showSearchBar });
 	}
+
+	handleChangePage = (newPage) => {
+		this.props.loadUsers(newPage, this.rowsPerPage);
+		this.setState({ page: newPage });
+	}
+
+	handleChangeRowsPerPage = (newRowsPerPage) => {
+		this.props.loadUsers(this.page, newRowsPerPage);
+	}
+
 }
 
 const mapStateToProps = (state) => {
-	return { userList: state.users.userList };
+	return { 
+		userList: state.users.userList, 
+		userListPagination: state.users.userListPagination
+	};
 }
 
 export default connect(

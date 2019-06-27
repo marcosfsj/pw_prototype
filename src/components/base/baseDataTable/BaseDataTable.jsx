@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
 import Table from '@material-ui/core/Table';
 
 import BaseDataTableBody from './BaseDataTableBody';
@@ -14,9 +12,14 @@ import BaseDataTableToolBar from './BaseDataTableToolBar';
 function BaseDataTable(props) {
 
   const {
+    title,
     headers,
     rows,
-    title,
+    pagination,
+    page,
+    rowsPerPage,
+    handleChangePage,
+    handleChangeRowsPerPage,
     toggleSearchBar
   } = props;
 
@@ -24,11 +27,7 @@ function BaseDataTable(props) {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(true);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const isSelected = id => selected.indexOf(id) !== -1;
-  const emptyRows = 0;
 
   return (
     <div className={classes.root}>
@@ -38,7 +37,7 @@ function BaseDataTable(props) {
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
+            size={'small'}
           >
             <BaseDataTableHead
               numSelected={selected.length}
@@ -52,28 +51,22 @@ function BaseDataTable(props) {
             <BaseDataTableBody
               handleClick={handleClick}
               isSelected={isSelected}
-              emptyRows={emptyRows}
               rows={rows}
-              rowsPerPage={rowsPerPage}
-              page={page}
               order={order}
               orderBy={orderBy}
               headers={headers}
+              rowsPerPage={rowsPerPage}
             />
           </Table>
         </div>
         <BaseDataTablePagination
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
+          pagination={pagination}
           page={page}
+          rowsPerPage={rowsPerPage}
           handleChangePage={handleChangePage}
           handleChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      />
     </div>
   );
 
@@ -111,27 +104,19 @@ function BaseDataTable(props) {
 
     setSelected(newSelected);
   }
-
-  function handleChangePage(event, newPage) {
-    setPage(newPage);
-  }
-
-  function handleChangeRowsPerPage(event) {
-    setRowsPerPage(+event.target.value);
-  }
-
-  function handleChangeDense(event) {
-    setDense(event.target.checked);
-  }
-
 }
 
 BaseDataTable.propTypes = {
+  title: PropTypes.string.isRequired,
   headers: PropTypes.array.isRequired,
   rows: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired,
+  pagination: PropTypes.object.isRequired,
+  page: PropTypes.number.isRequired,
+  rowsPerPage: PropTypes.number.isRequired,
+  handleChangePage: PropTypes.func.isRequired,
+  handleChangeRowsPerPage: PropTypes.func.isRequired,
   toggleSearchBar: PropTypes.func.isRequired
-};
+}
 
 export default BaseDataTable;
 

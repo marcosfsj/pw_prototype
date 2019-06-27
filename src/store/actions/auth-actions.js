@@ -9,7 +9,7 @@ import {
 import setAuthToken from '../utils/setAuthToken';
 
 // Load User
-export const loadUser = () => async dispatch => {
+export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
@@ -29,7 +29,7 @@ export const loadUser = () => async dispatch => {
 }
 
 // Login User
-export const login = (email, password) => async dispatch => {
+export const login = (email, password) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ export const login = (email, password) => async dispatch => {
 }
 
 // Logout / Clear Profile
-export const logout = () => dispatch => {
+export const logout = () => (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
 }

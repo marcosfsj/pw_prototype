@@ -11,18 +11,17 @@ function BaseTableBody(props) {
 		rows,
 		order,
 		orderBy,
-		page,
-		rowsPerPage,
 		isSelected,
 		handleClick,
-		emptyRows,
-		headers
+		headers,
+		rowsPerPage
 	} = props;
+
+	const emptyRows = rowsPerPage - rows.length;
 
 	return (
 		<TableBody>
 			{stableSort(rows, getSorting(order, orderBy))
-				.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 				.map((row, index) => {
 
 					const isItemSelected = isSelected(row.id);
@@ -49,7 +48,7 @@ function BaseTableBody(props) {
 					);
 				})}
 			{emptyRows > 0 && (
-				<TableRow style={{ height: 49 * emptyRows }}>
+				<TableRow style={{ height: 33 * emptyRows }}>
 					<TableCell colSpan={6} />
 				</TableRow>
 			)}
@@ -96,12 +95,10 @@ BaseTableBody.propTypes = {
 	rows: PropTypes.array.isRequired,
 	order: PropTypes.string.isRequired,
 	orderBy: PropTypes.string.isRequired,
-	page: PropTypes.number.isRequired,
-	rowsPerPage: PropTypes.number.isRequired,
 	isSelected: PropTypes.func.isRequired,
 	handleClick: PropTypes.func.isRequired,
-	emptyRows: PropTypes.number.isRequired,
-	headers: PropTypes.array.isRequired
+	headers: PropTypes.array.isRequired,
+	rowsPerPage: PropTypes.number.isRequired
 };
 
 export default BaseTableBody;

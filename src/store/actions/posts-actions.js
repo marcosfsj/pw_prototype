@@ -9,7 +9,7 @@ export const loadPostsAndUsers = () => async (dispatch, getState) => {
   userIds.forEach(id => dispatch(fetchUser(id)));
 }
 
-export const loadPosts = () => async dispatch => {
+export const loadPosts = () => async (dispatch) => {
   const response = await backend.get('/posts');
   dispatch({ type: LOAD_POSTS, payload: response.data });
 }

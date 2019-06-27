@@ -22,24 +22,24 @@ class App extends Component {
   render() {
     return (
       <StoreProvider>
-        <CssBaseline />
-        <Router>
-          <Switch>
-            <MuiThemeProvider theme={theme}>
-              <Grid container spacing={1}>
-                <Grid item xs={12}>
-                  <NavBar />
-                </Grid>
-                <Grid item xs={12}>
-                  <Container maxWidth="xl">
-                    <Route exact path="/" component={Dashboard} />
-                    <Route component={routes} />
-                  </Container>
-                </Grid>
+          <CssBaseline />
+          <MuiThemeProvider theme={theme}>
+            <Grid container spacing={1}>
+              <Grid item xs={12}>
+                <NavBar />
               </Grid>
-            </MuiThemeProvider>
-          </Switch>
-        </Router>
+              <Grid item xs={12}>
+                <Container maxWidth="xl">
+                  <Router>
+                    <Switch>
+                      <Route exact path="/" component={Dashboard} />
+                      <Route component={routes} />
+                    </Switch>
+                  </Router>
+                </Container>
+              </Grid>
+            </Grid>
+          </MuiThemeProvider>
       </StoreProvider>
     );
   }

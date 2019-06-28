@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import reducers from '../store/reducers/reducers';
+import reducers from '../store/reducers';
 
 function StoreProvider({ children, initialState = {} }) {
 	const store = createStore(

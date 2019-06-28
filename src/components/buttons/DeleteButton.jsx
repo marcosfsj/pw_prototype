@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseButton from '../base/BaseButton';
+import BaseButton from './BaseButton';
 
 function DeleteButton(props) {
   return <BaseButton text="Delete" onClick={props.handleDelete} />;

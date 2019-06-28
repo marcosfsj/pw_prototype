@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
-import BaseDataTable from '../../components/base/baseDataTable/BaseDataTable';
-import SearchFiltersBar from '../../components/SearchFiltersBar';
-import { loadUsers } from '../../store/actions/users-actions';
+import BaseDataTable from '../../components/dataTable/BaseDataTable';
+import SearchFiltersBar from '../../components/bars/SearchFiltersBar';
+import { loadUsers } from '../../store/actions/userActions';
 
-class PrototypeTwo extends Component {
+class SomeFeature extends Component {
 
 	state = { showSearchBar: false, page: 1, rowsPerPage: 15 };
 	headers = [
@@ -74,4 +74,4 @@ const mapStateToProps = (state) => {
 export default connect(
 	mapStateToProps,
 	{ loadUsers }
-)(PrototypeTwo);
+)(SomeFeature);

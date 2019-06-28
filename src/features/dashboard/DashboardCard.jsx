@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   }
 });
 
-function DashCard() {
+function DashboardCard() {
   const classes = useStyles();
 
   return (
@@ -49,4 +49,4 @@ function DashCard() {
   );
 }
 
-export default DashCard;
+export default DashboardCard;

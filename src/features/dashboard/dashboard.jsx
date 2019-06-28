@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import DashboardCard from './dashboard-card';
+import DashboardCard from './DashboardCard';
 
 class Dashboard extends Component {
 

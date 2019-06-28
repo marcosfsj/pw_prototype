@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseButton from '../base/BaseButton';
+import BaseButton from './BaseButton';
 
 function SaveButton(props) {
   return <BaseButton text="Save" onClick={props.handleSave} />;

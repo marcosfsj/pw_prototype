@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
-import CommentBox from './comment-box';
-import CommentList from './comment-list';
-import { loadComments } from '../../store/actions/comments-actions';
+import CommentBox from './CommentBox';
+import CommentList from './CommentList';
+import { loadComments } from '../../store/actions/commentActions';
 
 class Comments extends Component {
 

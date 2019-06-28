@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import BaseTextField from './base/BaseTextField';
-import SearchButton from '../components/buttons/SearchButton';
+import BaseTextField from '../inputs/BaseTextField';
+import SearchButton from '../buttons/SearchButton';
 
 export default function SearchFiltersBar() {
 	return (

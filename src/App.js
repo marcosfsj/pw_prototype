@@ -9,14 +9,14 @@ import Container from '@material-ui/core/Container';
 import theme from './config/theme/theme';
 
 // Store Provider
-import StoreProvider from './utils/store-provider';
+import StoreProvider from './utils/StoreProvider';
 
 // Routes
 import routes from './config/routing/routes';
 
 // App components
-import NavBar from './components/layout/NavBar';
-import Dashboard from './features/dashboard/dashboard';
+import NavBar from './components/bars/NavBar'
+import Dashboard from './features/Dashboard';
 
 class App extends Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseButton from '../base/BaseButton';
+import BaseButton from './BaseButton';
 
 function SearchButton(props) {
   return <BaseButton text="Search" onClick={props.handleSearch} />;

@@ -65,8 +65,8 @@ class SomeView extends Component {
 }
 
 const mapStateToProps = (state) => {
-	return { 
-		userList: state.users.userList, 
+	return {
+		userList: state.users.userList,
 		userListPagination: state.users.userListPagination
 	};
 }

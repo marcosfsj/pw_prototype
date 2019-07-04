@@ -6,17 +6,17 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 
 // Theme
-import theme from './config/theme/theme';
+import theme from './configs/theme/theme';
 
 // Store Provider
 import StoreProvider from './utils/StoreProvider';
 
 // Routes
-import routes from './config/routing/routes';
+import routes from './configs/routing/routes';
 
 // App components
 import NavBar from './components/bars/NavBar'
-import Dashboard from './features/Dashboard';
+import Dashboard from './views/Dashboard';
 
 class App extends Component {
   render() {

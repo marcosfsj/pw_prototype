@@ -2,7 +2,7 @@ import {
   SAVE_COMMENT,
   LOAD_COMMENTS
 } from './types';
-import backend from '../../config/backend/backend';
+import backend from '../../configs/backend/backend';
 
 export const saveComment = (comment) => (dispatch) => {
   dispatch({ type: SAVE_COMMENT, payload: comment });

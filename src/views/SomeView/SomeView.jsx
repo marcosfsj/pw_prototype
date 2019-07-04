@@ -16,7 +16,7 @@ class SomeFeature extends Component {
 		{ id: 'website', numeric: false, disablePadding: false, label: 'Website' }
 	];
 
-	componentDidMount() {
+	componentWillMount = () => {
 		this.props.loadUsers();
 	}
 

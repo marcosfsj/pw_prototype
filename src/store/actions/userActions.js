@@ -1,4 +1,4 @@
-import backend from '../../config/backend/backend';
+import backend from '../../configs/backend/backend';
 import { FETCH_USER, LOAD_USERS } from './types';
 import parse from 'parse-link-header';
 

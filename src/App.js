@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 import theme from './configs/theme/theme';
 
 // Store Provider
-import StoreProvider from './utils/StoreProvider';
+import StoreProvider from './store/StoreProvider';
 
 // Routes
 import routes from './configs/routing/routes';

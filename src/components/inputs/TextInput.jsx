@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-export default function BaseTextField(props) {
+export default function TextInput(props) {
 	const classes = useStyles();
 	return (
 		<TextField

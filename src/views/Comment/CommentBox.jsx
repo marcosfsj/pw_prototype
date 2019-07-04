@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import BaseTextArea from '../../components/inputs/BaseTextArea';
+import BaseTextArea from '../../components/inputs/TextAreaInput';
 import SubmitButton from '../../components/buttons/SubmitButton';
 import { saveComment } from '../../store/actions/commentActions';
 

@@ -15,7 +15,7 @@ import StoreProvider from './store/StoreProvider';
 import routes from './configs/routing/routes';
 
 // App components
-import NavBar from './components/bars/NavBar'
+import NavBar from './containers/bars/NavBar'
 import Dashboard from './views/Dashboard';
 
 class App extends Component {

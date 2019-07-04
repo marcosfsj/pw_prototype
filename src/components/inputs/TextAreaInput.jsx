@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-export default function BaseTextArea(props) {
+export default function TextAreaInput(props) {
 	const classes = useStyles();
 	return (
 		<TextField

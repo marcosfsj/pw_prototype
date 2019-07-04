@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
 import BaseDataTable from '../../components/dataTable/BaseDataTable';
-import SearchFiltersBar from '../../components/bars/SearchFiltersBar';
+import SearchFiltersBar from '../../containers/bars/SearchFiltersBar';
 import { loadUsers } from '../../store/actions/userActions';
 
-class SomeFeature extends Component {
+class SomeView extends Component {
 
 	state = { showSearchBar: false, page: 1, rowsPerPage: 15 };
 	headers = [
@@ -74,4 +74,4 @@ const mapStateToProps = (state) => {
 export default connect(
 	mapStateToProps,
 	{ loadUsers }
-)(SomeFeature);
+)(SomeView);

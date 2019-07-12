@@ -5,6 +5,7 @@ import { ProtectedRoute } from './ProtectedRoute';
 
 const SomeView = lazy(() => import('../../views/SomeView'));
 const Comment = lazy(() => import('../../views/Comment'));
+const SomeForm = lazy(() => import('../../views/SomeForm'));
 
 const routes = () => {
   return (
@@ -12,8 +13,9 @@ const routes = () => {
       <Switch>
         <Route exact path="/someview" component={SomeView} />
         <Route exact path="/comments" component={Comment} />
-        <ProtectedRoute exact path="/app" component={() => "protected"} />
-        <Route path="*" component={() => "404 NOT FOUND"} />
+        <Route exact path="/someform" component={SomeForm} />
+        <ProtectedRoute exact path="/app" component={() => 'protected'} />
+        <Route path="*" component={() => '404 NOT FOUND'} />
       </Switch>
     </Suspense>
   );
